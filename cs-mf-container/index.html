@@ -12,12 +12,12 @@
   <body onload="tellComponents()">
     <div class="container">
       <div class="row">
-        <!--        <div class="col">-->
-        <!--            <div class="card">-->
-        <!--                <h5 class="card-header">Angular</h5>-->
-        <!--                <div class="card-body" id="ng-container"></div>-->
-        <!--            </div>-->
-        <!--        </div>-->
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Angular</h5>
+            <div class="card-body" id="ng-container"></div>
+          </div>
+        </div>
         <div class="col">
           <div class="card">
             <h5 class="card-header">React</h5>
@@ -27,40 +27,39 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="./index.js"></script>
     <script>
       function tellComponents() {
-
         const reactEl = document.createElement("cs-search");
+
         reactEl.setAttribute("name", "Searchcomponent");
         reactEl.addEventListener("load", onload);
 
         globalThis.addEventListener("cs-search", (event) => {
           console.log("Received event from cs-search", event, event.detail);
-          switch(event.detail.name) {
-              case "name":
-                  reactEl.setAttribute("name", event.detail.data);
+          switch (event.detail.name) {
+            case "name":
+              reactEl.setAttribute("name", event.detail.data);
           }
         });
-        
         const reactElContainer = document.getElementById("react-container");
         if (reactElContainer.children.length > 0) {
           reactElContainer.removeChild(reactElContainer.children[0]);
         }
         reactElContainer.appendChild(reactEl);
-      }
 
+        const angularEl = document.createElement("cs-navigation");
+
+        const angularElContainer = document.getElementById("ng-container");
+        if (angularElContainer.children.length > 0) {
+          angularElContainer.removeChild(angularElContainer.children[0]);
+        }
+        angularElContainer.appendChild(angularEl);
+      }
     </script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
-    <!--<script src="http://localhost:3000/main.js"></script>-->
-    <script src="http://localhost:41125/static/js/2.e38fd813.chunk.js"></script>
-    <script src="http://localhost:41125/static/js/main.e5571466.chunk.js"></script>
-    <script src="http://localhost:41125/static/js/runtime-main.d9a106c0.js"></script>
-    <link
-      href="http://localhost:41125/static/css/main.aed33cb1.chunk.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <script src="http://localhost:5002/main.js"></script>
+    <script src="http://localhost:3000/static/js/bundle.js"></script>
   </body>
 </html>

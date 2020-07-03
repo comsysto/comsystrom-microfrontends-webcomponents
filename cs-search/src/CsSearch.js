@@ -1,6 +1,8 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import {dispatchEvent} from "./service"
+import StyledCsSearch from './CsSearch.styled'
+
 export class SearchComponent extends React.Component {
     static propTypes = {
         name: PropTypes.string
@@ -16,6 +18,7 @@ export class SearchComponent extends React.Component {
         }
 
         return (
+            <StyledCsSearch>
             <div>
                 <input
                     type="text"
@@ -47,6 +50,7 @@ export class SearchComponent extends React.Component {
                     </li>
                 </ul>
             </div>
+            </StyledCsSearch>
         );
     }
 }

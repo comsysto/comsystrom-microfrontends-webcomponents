@@ -1,8 +1,7 @@
 import React from 'react';
-import './index.css';
 import { render, unmountComponentAtNode } from 'react-dom';
 // import htmlToReact from 'html-to-react';
-import {SearchComponent} from "./CsSearch";
+import { SearchComponent } from "./CsSearch";
 
 class ReactElement extends HTMLElement {
 
@@ -42,8 +41,8 @@ class ReactElement extends HTMLElement {
     }
 
     getProps(attributes, propTypes) {
-        propTypes = propTypes|| {};
-        return [ ...attributes ]
+        propTypes = propTypes || {};
+        return [...attributes]
             .filter(attr => attr.name !== 'style')
             .map(attr => this.convert(propTypes, attr.name, attr.value))
             .reduce((props, prop) =>
