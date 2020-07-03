@@ -29,10 +29,8 @@ class ReactElement extends HTMLElement {
 
     mount() {
         const propTypes = SearchComponent.propTypes ? SearchComponent.propTypes : {};
-        const events = SearchComponent.propTypes ? SearchComponent.propTypes : {};
         const props = {
             ...this.getProps(this.attributes, propTypes),
-            ...this.getEvents(events),
             // children: this.parseHtmlToReact(this.innerHTML)
             children: this.innerHTML
         };
@@ -43,10 +41,6 @@ class ReactElement extends HTMLElement {
         unmountComponentAtNode(this);
     }
 
-    // parseHtmlToReact(html) {
-    //     return html && new htmlToReact.Parser().parse(html);
-    // }
-
     getProps(attributes, propTypes) {
         propTypes = propTypes|| {};
         return [ ...attributes ]
@@ -54,16 +48,6 @@ class ReactElement extends HTMLElement {
             .map(attr => this.convert(propTypes, attr.name, attr.value))
             .reduce((props, prop) =>
                 ({ ...props, [prop.name]: prop.value }), {});
-    }
-
-    getEvents(propTypes) {
-        return Object.keys(propTypes)
-            .filter(key => /on([A-Z].*)/.exec(key))
-            .reduce((events, ev) => ({
-                ...events,
-                [ev]: args =>
-                    this.dispatchEvent(new CustomEvent(ev, { ...args }))
-            }), {});
     }
 
     convert(propTypes, attrName, attrValue) {

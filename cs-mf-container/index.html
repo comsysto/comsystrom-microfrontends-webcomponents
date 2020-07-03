@@ -37,9 +37,12 @@
 
         globalThis.addEventListener("cs-search", (event) => {
           console.log("Received event from cs-search", event, event.detail);
-          reactEl.setAttribute("name", event.detail.name);
+          switch(event.detail.name) {
+              case "name":
+                  reactEl.setAttribute("name", event.detail.data);
+          }
         });
-
+        
         const reactElContainer = document.getElementById("react-container");
         if (reactElContainer.children.length > 0) {
           reactElContainer.removeChild(reactElContainer.children[0]);
@@ -51,8 +54,8 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
     <!--<script src="http://localhost:3000/main.js"></script>-->
-    <script src="http://localhost:41125/static/js/2.7cfb32a4.chunk.js"></script>
-    <script src="http://localhost:41125/static/js/main.e4421cc3.chunk.js"></script>
+    <script src="http://localhost:41125/static/js/2.e38fd813.chunk.js"></script>
+    <script src="http://localhost:41125/static/js/main.e5571466.chunk.js"></script>
     <script src="http://localhost:41125/static/js/runtime-main.d9a106c0.js"></script>
     <link
       href="http://localhost:41125/static/css/main.aed33cb1.chunk.css"

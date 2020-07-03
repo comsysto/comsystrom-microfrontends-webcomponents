@@ -12,7 +12,7 @@ export class SearchComponent extends React.Component {
     render() {
         const { name } = this.props;
         const onClick = () => {
-            dispatchEvent(Math.random().toString() + "Test")
+            dispatchEvent("name", Math.random().toString() + "Test")
         }
 
         return (
