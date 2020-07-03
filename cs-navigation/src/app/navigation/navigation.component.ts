@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComsystromEvent } from '../comsystrom-event';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+    tabs = [
+        { path: '/anschlussobjekte', name: 'Anschlussobjekte' },
+        { path: '/kunden', name: 'Kunden' },
+    ];
 
-  ngOnInit(): void {
-  }
+    private channel: BroadcastChannel;
+
+    constructor() {
+    }
+
+    ngOnInit(): void {
+        this.channel = new BroadcastChannel('comsystrom');
+    }
+
+    onTabClicked(tab): void {
+        const event: ComsystromEvent = {
+            key: 'navigation:change',
+            value: tab
+        };
+
+        this.channel.postMessage(event);
+    }
 
 }

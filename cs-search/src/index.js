@@ -27,11 +27,10 @@ class ReactElement extends HTMLElement {
     }
 
     mount() {
+        // A typechecking mechanism of react (does not work in production): https://reactjs.org/docs/typechecking-with-proptypes.html
         const propTypes = SearchComponent.propTypes ? SearchComponent.propTypes : {};
         const props = {
             ...this.getProps(this.attributes, propTypes),
-            // children: this.parseHtmlToReact(this.innerHTML)
-            children: this.innerHTML
         };
         render(<SearchComponent {...props} />, this);
     }
@@ -40,6 +39,7 @@ class ReactElement extends HTMLElement {
         unmountComponentAtNode(this);
     }
 
+    // 
     getProps(attributes, propTypes) {
         propTypes = propTypes || {};
         return [...attributes]
@@ -49,6 +49,9 @@ class ReactElement extends HTMLElement {
                 ({ ...props, [prop.name]: prop.value }), {});
     }
 
+    /*
+        Converts a received string attrValue into a desired type (ex. "1" => 1) and returns a mapping of the name and the value of the attribute
+    */
     convert(propTypes, attrName, attrValue) {
         const propName = Object.keys(propTypes)
             .find(key => key.toLowerCase() == attrName);

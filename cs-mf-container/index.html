@@ -68,6 +68,11 @@
           vueElContainer.removeChild(vueElContainer.children[0]);
         }
         vueElContainer.appendChild(vueEl);
+
+        /* Setup broadcast channel */
+        const channel = new BroadcastChannel("comsystrom");
+        channel.onmessage = (msg) => console.log(msg);
+
       }
     </script>
 
