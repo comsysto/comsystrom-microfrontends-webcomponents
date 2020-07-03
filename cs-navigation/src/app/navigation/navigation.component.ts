@@ -9,8 +9,8 @@ import { ComsystromEvent } from '../comsystrom-event';
 export class NavigationComponent implements OnInit {
 
     tabs = [
-        { path: '/anschlussobjekte', name: 'Anschlussobjekte' },
-        { path: '/kunden', name: 'Kunden' },
+        { path: '/anschlussobjekte', name: 'Anschlussobjekte', bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search" },
+        { path: '/kunden', name: 'Kunden', bundleUrl: "http://localhost:5003/js/app.js", elementName: "cs-details" },
     ];
 
     private channel: BroadcastChannel;
