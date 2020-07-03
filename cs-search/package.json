@@ -6,7 +6,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "serve:build": "../cs-mf-container/node_modules/.bin/http-server build -p 3000"
+    "serve:build": "../cs-mf-container/node_modules/.bin/http-server build -p 5001"
   },
   "dependencies": {
     "@babel/core": "7.9.0",

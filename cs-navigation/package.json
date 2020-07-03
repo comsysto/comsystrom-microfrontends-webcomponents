@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "npm run build && npx serve -l 5002 dist/cs-navigation",
         "build": "ng build --prod --optimization=false --output-hashing none --single-bundle true",
+        "serve:build": "../cs-mf-container/node_modules/.bin/http-server dist/cs-navigation -p 5002",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
