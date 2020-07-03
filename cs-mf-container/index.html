@@ -24,6 +24,12 @@
             <div class="card-body" id="react-container"></div>
           </div>
         </div>
+        <div class="col">
+          <div class="card">
+            <h5 class="card-header">Vue</h5>
+            <div class="card-body" id="vue-container"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -55,9 +61,18 @@
         }
         angularElContainer.appendChild(angularEl);
 
+        const vueEl = document.createElement("cs-details");
+
+        const vueElContainer = document.getElementById("vue-container");
+        if (vueElContainer.children.length > 0) {
+          vueElContainer.removeChild(vueElContainer.children[0]);
+        }
+        vueElContainer.appendChild(vueEl);
+
         /* Setup broadcast channel */
         const channel = new BroadcastChannel("comsystrom");
         channel.onmessage = (msg) => console.log(msg);
+
       }
     </script>
 
@@ -66,5 +81,6 @@
 
     <script src="http://localhost:5001/static/js/bundle.js" react-app></script>
     <script src="http://localhost:5002/main.js" angular-app></script>
+    <script src="http://localhost:5003/js/app.js" vue-app></script>
   </body>
 </html>
