@@ -31,12 +31,22 @@
       function tellComponents() {
         const reactEl = document.createElement("cs-search");
 
+        reactEl.setAttribute("name", "Searchcomponent");
+        reactEl.addEventListener("load", onload);
+
+        globalThis.addEventListener("cs-search", (event) => {
+          console.log("Received event from cs-search", event, event.detail);
+          switch (event.detail.name) {
+            case "name":
+              reactEl.setAttribute("name", event.detail.data);
+          }
+        });
         const reactElContainer = document.getElementById("react-container");
         if (reactElContainer.children.length > 0) {
           reactElContainer.removeChild(reactElContainer.children[0]);
         }
         reactElContainer.appendChild(reactEl);
-      
+
         const angularEl = document.createElement("cs-navigation");
 
         const angularElContainer = document.getElementById("ng-container");
