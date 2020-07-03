@@ -10,7 +10,11 @@ startCsNavigation() {
     yarn build
     yarn serve:build 
 }
-
+startCsDetails() {
+    cd ../cs-details
+    yarn build
+    yarn serve:build 
+}
 startMfContainer() {
     cd ../cs-mf-container
     yarn start
@@ -18,4 +22,5 @@ startMfContainer() {
 
 startCsSearch & 
 startCsNavigation &
+startCsDetails &
 startMfContainer 
