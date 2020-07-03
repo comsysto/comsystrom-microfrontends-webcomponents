@@ -1,1 +1,12 @@
-<p>navigation works!</p>
+<h1>Navigation</h1>
+<div class="navigation">
+  <ul class="navigation__list">
+    <li
+      class="navigation__list-item"
+      *ngFor="let tab of tabs"
+      (click)="onTabClicked(tab)"
+    >
+      {{ tab.name }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+.navigation__list {
+    list-style-type: none;
+}
+
+.navigation__list-item {
+    background-color: lightblue;
+    margin: 5px;
+    padding: 5px;
+}
+
+.navigation__list-item:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
