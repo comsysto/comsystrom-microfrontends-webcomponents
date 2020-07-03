@@ -30,17 +30,15 @@
     <script type="text/javascript" src="./index.js"></script>
     <script>
       function tellComponents() {
-        let bc = new BroadcastChannel("comsystrom_channel");
-
-        bc.onmessage = function (ev) {
-          console.log("Message", ev.data);
-          console.log("Complete broadcastevent:", ev);
-        };
 
         const reactEl = document.createElement("cs-search");
         reactEl.setAttribute("name", "Searchcomponent");
-        reactEl.setAttribute("onHelloEvt", "onHelloEvt");
-        reactEl.addEventListener("onHelloEvt", (e) => helloEvent("React"));
+        reactEl.addEventListener("load", onload);
+
+        globalThis.addEventListener("cs-search", (event) => {
+          console.log("Received event from cs-search", event, event.detail);
+          reactEl.setAttribute("name", event.detail.name);
+        });
 
         const reactElContainer = document.getElementById("react-container");
         if (reactElContainer.children.length > 0) {
@@ -49,21 +47,12 @@
         reactElContainer.appendChild(reactEl);
       }
 
-      function helloEvent(who) {
-        console.log("Who", who);
-        logMessage(who, "hello");
-      }
-
-      function logMessage(source, msg) {
-        const msgContainer = document.getElementById("messages");
-        msgContainer.innerHTML += `<p><strong>${source}</strong> said ${msg}`;
-      }
     </script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
     <!--<script src="http://localhost:3000/main.js"></script>-->
     <script src="http://localhost:41125/static/js/2.7cfb32a4.chunk.js"></script>
-    <script src="http://localhost:41125/static/js/main.30f917cf.chunk.js"></script>
+    <script src="http://localhost:41125/static/js/main.e4421cc3.chunk.js"></script>
     <script src="http://localhost:41125/static/js/runtime-main.d9a106c0.js"></script>
     <link
       href="http://localhost:41125/static/css/main.aed33cb1.chunk.css"

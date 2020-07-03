@@ -1,25 +1,18 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-
+import {dispatchEvent} from "./service"
 export class SearchComponent extends React.Component {
     static propTypes = {
-        name: PropTypes.string,
-        onHelloEvt: PropTypes.func
+        name: PropTypes.string
     };
     static defaultProps = {
         name: "Search",
     };
     
     render() {
-        const { name, onHelloEvt } = this.props;
-        console.log("Init Searchcomponent ", name, onHelloEvt)
-
-        const bc = new BroadcastChannel('comsystrom_channel');
-        bc.postMessage('Connected to channel.');
+        const { name } = this.props;
         const onClick = () => {
-            console.log("SEARCH: Click");
-            bc.postMessage('Clicked on item.');
-            onHelloEvt();
+            dispatchEvent(Math.random().toString() + "Test")
         }
 
         return (
