@@ -9,8 +9,19 @@ export class SearchComponent extends React.Component {
     static defaultProps = {
         name: "Search",
     };
+    
     render() {
         const { name, onHelloEvt } = this.props;
+        console.log("Init Searchcomponent ", name, onHelloEvt)
+
+        const bc = new BroadcastChannel('comsystrom_channel');
+        bc.postMessage('Connected to channel.');
+        const onClick = () => {
+            console.log("SEARCH: Click");
+            bc.postMessage('Clicked on item.');
+            onHelloEvt();
+        }
+
         return (
             <div>
                 <input
@@ -21,25 +32,25 @@ export class SearchComponent extends React.Component {
                 />
                 <ul className="cs-search-list">
                     <li>
-                        <a href="#">ComSystrom</a>
+                        <a href="#" onClick={onClick}>ComSystrom</a>
                     </li>
                     <li>
-                        <a href="#">Replystrom</a>
+                        <a href="#" onClick={onClick}>Replystrom</a>
                     </li>
                     <li>
-                        <a href="#">Test1</a>
+                        <a href="#" onClick={onClick}>Test1</a>
                     </li>
                     <li>
-                        <a href="#">Test2</a>
+                        <a href="#" onClick={onClick}>Test2</a>
                     </li>
                     <li>
-                        <a href="#">Test2</a>
+                        <a href="#" onClick={onClick}>Test2</a>
                     </li>
                     <li>
-                        <a href="#">Test3</a>
+                        <a href="#" onClick={onClick}>Test3</a>
                     </li>
                     <li>
-                        <a href="#">Test4</a>
+                        <a href="#" onClick={onClick}>Test4</a>
                     </li>
                 </ul>
             </div>
