@@ -1,10 +1,25 @@
 <template>
-  <span>Details are shown here...</span>
+  <span>{{object}}</span>
 </template>
 
 <script>
 export default {
   name: "App",
+  props: {
+    object: {
+      type: String
+    }
+  },
+  created (){
+    const channel = new BroadcastChannel("comsystrom");
+    this.object = "Showing no details currently"
+    channel.onmessage = (msg) => {
+
+      if (msg.data.type === "CS_SEARCH_CLICK_ITEM") {
+         this.object =  "Showing details of " + msg.data.payload
+      }
+    }
+  }
 };
 </script>
 
