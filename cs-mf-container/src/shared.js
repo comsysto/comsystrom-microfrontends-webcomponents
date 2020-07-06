@@ -1,4 +1,3 @@
-
 function initMicrofrontendContainer() {
 
     initNavigation();
@@ -8,16 +7,15 @@ function initMicrofrontendContainer() {
     channel.onmessage = (msg) => {
         console.log(msg);
         if (msg.data.key === "navigation:change") {
-            const bundleDescription = msg.data.value;
-            loadScript(bundleDescription.bundleUrl);
             const microFrontendContainer = document.getElementById("main-container");
-            if (microFrontendContainer.children.length > 0) {
-                microFrontendContainer.removeChild(microFrontendContainer.children[0]);
-            }
+            removeAllChildNodes(microFrontendContainer);
 
-            const microFrontendEl = document.createElement(bundleDescription.elementName);
-            microFrontendEl.addEventListener("load", onload);
-            microFrontendContainer.appendChild(microFrontendEl);
+            msg.data.value.bundles.forEach(b => {
+                loadScript(b.bundleUrl);
+                const microFrontendEl = document.createElement(b.elementName);
+                microFrontendEl.addEventListener("load", onload);
+                microFrontendContainer.appendChild(microFrontendEl);
+            });
         }
     };
 }
@@ -42,4 +40,10 @@ function loadScript(url) {
     myScript.src = url;
     myScript.className = 'search-script';
     document.body.appendChild(myScript);
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }

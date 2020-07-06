@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ComsystromEvent } from '../comsystrom-event';
+import {Component, OnInit} from '@angular/core';
+import {ComsystromEvent} from '../comsystrom-event';
 
 @Component({
-  selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
 
     tabs = [
-        { path: '/anschlussobjekte', name: 'Anschlussobjekte', bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search" },
-        { path: '/kunden', name: 'Kunden', bundleUrl: "http://localhost:5003/js/app.js", elementName: "cs-details" },
+        {
+            path: '/anschlussobjekte', name: 'Anschlussobjekte', bundles: [
+                {bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search"},
+                {bundleUrl: "http://localhost:5003/js/app.js", elementName: "cs-details"}
+            ]
+        },
+        {path: '/kunden', name: 'Kunden', bundles: []},
     ];
 
     private channel: BroadcastChannel;
