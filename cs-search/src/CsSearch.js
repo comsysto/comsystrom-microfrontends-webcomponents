@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { dispatchEvent } from "./service";
 import StyledCsSearch from "./CsSearch.styled";
 
 export class SearchComponent extends React.Component {
@@ -13,8 +12,9 @@ export class SearchComponent extends React.Component {
 
   render() {
     const { name } = this.props;
-    const onClick = () => {
-      dispatchEvent("name", Math.random().toString() + "Test");
+    const channel = new BroadcastChannel("comsystrom");
+    const onClick = (item) => {
+      channel.postMessage({type: "CS_SEARCH_CLICK_ITEM", payload: item});
     };
 
     return (
@@ -23,38 +23,33 @@ export class SearchComponent extends React.Component {
           <input type="text" placeholder={name} />
           <ul>
             <li>
-              <a href="#" onClick={onClick}>
+              <a href="#" onClick={() => onClick("ComSystrom")}>
                 ComSystrom
               </a>
             </li>
             <li>
-              <a href="#" onClick={onClick}>
+              <a href="#" onClick={() => onClick("Replystrom")}>
                 Replystrom
               </a>
             </li>
             <li>
-              <a href="#" onClick={onClick}>
-                Test1
+              <a href="#" onClick={() => onClick("Clusterstrom")}>
+                Clusterstrom
               </a>
             </li>
             <li>
-              <a href="#" onClick={onClick}>
-                Test2
+              <a href="#" onClick={() => onClick("Powerstrom")}>
+                Powerstrom
               </a>
             </li>
             <li>
-              <a href="#" onClick={onClick}>
-                Test2
+              <a href="#" onClick={() => onClick("Datastrom")}>
+                Datastrom
               </a>
             </li>
             <li>
-              <a href="#" onClick={onClick}>
-                Test3
-              </a>
-            </li>
-            <li>
-              <a href="#" onClick={onClick}>
-                Test4
+              <a href="#" onClick={() => onClick("Konzeptstrom")}>
+                Konzeptstrom
               </a>
             </li>
           </ul>
