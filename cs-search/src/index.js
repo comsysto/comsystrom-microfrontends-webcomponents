@@ -71,3 +71,9 @@ class ReactElement extends HTMLElement {
 }
 
 customElements.define('cs-search', ReactElement);
+
+if(process.env.NODE_ENV === 'development') {
+    document.body.appendChild(
+        document.createElement("cs-search")
+    )
+}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "env NODE_ENV=development node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "serve:build": "../cs-mf-container/node_modules/.bin/http-server build -p 5001"
