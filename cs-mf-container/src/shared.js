@@ -1,6 +1,8 @@
 function initMicrofrontendContainer() {
 
     initNavigation();
+    initSearch();
+    initDetails();
 
     /* Setup broadcast channel */
     const channel = new BroadcastChannel("comsystrom");
@@ -28,6 +30,26 @@ function initNavigation() {
         angularElContainer.removeChild(angularElContainer.children[0]);
     }
     angularElContainer.appendChild(angularEl);
+}
+
+function initSearch() {
+    const reactEl = document.createElement("cs-search");
+
+    const reactElContainer = document.getElementById("react-container");
+    if (reactElContainer.children.length > 0) {
+        reactElContainer.removeChild(reactElContainer.children[0]);
+    }
+    reactElContainer.appendChild(reactEl);
+}
+
+function initDetails() {
+    const vueEl = document.createElement("cs-details");
+
+    const vueElContainer = document.getElementById("vue-container");
+    if (vueElContainer.children.length > 0) {
+        vueElContainer.removeChild(vueElContainer.children[0]);
+    }
+    vueElContainer.appendChild(vueEl);
 }
 
 function loadScript(url) {
