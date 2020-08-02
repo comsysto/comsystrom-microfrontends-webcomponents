@@ -3,15 +3,16 @@ import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
+import { NavigationModule } from './navigation/navigation.module';
 import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
     declarations: [
-      AppComponent,
-      NavigationComponent
+      AppComponent
     ],
     imports: [
-      BrowserModule
+      BrowserModule,
+      NavigationModule
     ],
     providers: [],
     bootstrap: [],

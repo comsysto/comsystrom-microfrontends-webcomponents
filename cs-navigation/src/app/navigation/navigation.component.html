@@ -1,12 +1,13 @@
-<h1>Navigation</h1>
+<h1 class="mat-display-1">Comsystrom</h1>
+<h2 class="mat-h2">Anschlussverwaltung</h2>
 <div class="navigation">
-  <ul class="navigation__list">
-    <li
+  <mat-nav-list class="navigation__list" role="list">
+    <mat-list-item
       class="navigation__list-item"
       *ngFor="let tab of tabs"
       (click)="onTabClicked(tab)"
-    >
+      role="listitem">
       {{ tab.name }}
-    </li>
-  </ul>
+    </mat-list-item>
+  </mat-nav-list>
 </div>
