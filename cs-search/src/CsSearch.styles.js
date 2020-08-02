@@ -3,6 +3,9 @@ export const styles = {
     searchField: {
         margin: '0 0 16px 16px'
     },
+    searchFieldInput: {
+        width: '100%'
+    },
     searchList: {},
     searchItem: {
         borderTop: '1px solid #ddd',

@@ -16,7 +16,7 @@ const Search = ({ name = "Search...", classes }) => {
     return (
       <div className={classes.search}>
         <div className={classes.searchField}>
-          <TextField placeholder={name} />
+          <TextField className={classes.searchFieldInput} placeholder={name} />
         </div>
 
         <div className={classes.searchList}>
