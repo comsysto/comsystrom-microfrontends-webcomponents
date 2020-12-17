@@ -32,33 +32,33 @@
 
 /* Angular Container */
 
-#ng-container {
+#navigation-container {
   border-color: #c3002f;
 }
 
-#ng-container:after {
+#navigation-container:after {
   content: "Angular";
   background: #c3002f;
 }
 
 /* React Container */
 
-#react-container {
+#search-container {
   border-color: #3ebddd;
 }
 
-#react-container:after {
+#search-container:after {
   content: "React";
   background: #3ebddd;
 }
 
 /* Vue Container */
 
-#vue-container {
+#details-container {
   border-color: #41b883;
 }
 
-#vue-container:after {
+#details-container:after {
   content: "Vue";
   background: #41b883;
 }

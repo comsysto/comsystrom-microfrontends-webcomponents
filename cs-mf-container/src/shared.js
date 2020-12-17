@@ -1,21 +1,25 @@
 function initMicrofrontendContainer() {
 
     initNavigation();
-    initSearch();
-    initDetails();
 
     /* Setup broadcast channel */
     const channel = new BroadcastChannel("comsystrom");
     channel.onmessage = (msg) => {
         console.log(msg);
         if (msg.data.key === "navigation:change") {
-            const microFrontendContainer = document.getElementById("main-container");
-            removeAllChildNodes(microFrontendContainer);
+            const csSearchContainer = document.getElementById("search-container");
+            const csDetailsContainer = document.getElementById("details-container");
+
+            removeAllChildNodes(csSearchContainer);
+            removeAllChildNodes(csDetailsContainer);
 
             msg.data.value.bundles.forEach(b => {
                 loadScript(b.bundleUrl);
                 const microFrontendEl = document.createElement(b.elementName);
+                const microFrontendContainer = b.elementName === "cs-search" ? csSearchContainer : csDetailsContainer
                 microFrontendEl.addEventListener("load", onload);
+
+                removeAllChildNodes(microFrontendContainer);
                 microFrontendContainer.appendChild(microFrontendEl);
             });
         }
@@ -25,31 +29,11 @@ function initMicrofrontendContainer() {
 function initNavigation() {
     const angularEl = document.createElement("cs-navigation");
 
-    const angularElContainer = document.getElementById("ng-container");
+    const angularElContainer = document.getElementById("navigation-container");
     if (angularElContainer.children.length > 0) {
         angularElContainer.removeChild(angularElContainer.children[0]);
     }
     angularElContainer.appendChild(angularEl);
-}
-
-function initSearch() {
-    const reactEl = document.createElement("cs-search");
-
-    const reactElContainer = document.getElementById("react-container");
-    if (reactElContainer.children.length > 0) {
-        reactElContainer.removeChild(reactElContainer.children[0]);
-    }
-    reactElContainer.appendChild(reactEl);
-}
-
-function initDetails() {
-    const vueEl = document.createElement("cs-details");
-
-    const vueElContainer = document.getElementById("vue-container");
-    if (vueElContainer.children.length > 0) {
-        vueElContainer.removeChild(vueElContainer.children[0]);
-    }
-    vueElContainer.appendChild(vueEl);
 }
 
 function loadScript(url) {
