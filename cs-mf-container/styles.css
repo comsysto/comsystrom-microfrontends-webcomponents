@@ -1,0 +1,64 @@
+.wrapper {
+  padding: 30px;
+  height: 100vh;
+}
+
+.row {
+  height: 100%;
+}
+
+.col {
+  display: flex;
+  padding: 5px;
+}
+
+.card-body {
+  position: relative;
+  border: 1px dashed #dddddd;
+  padding-top: 25px;
+}
+
+.card-body:after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  background: #dddddd;
+  color: white;
+  padding: 3px;
+}
+
+/* Angular Container */
+
+#navigation-container {
+  border-color: #c3002f;
+}
+
+#navigation-container:after {
+  content: "Angular";
+  background: #c3002f;
+}
+
+/* React Container */
+
+#search-container {
+  border-color: #3ebddd;
+}
+
+#search-container:after {
+  content: "React";
+  background: #3ebddd;
+}
+
+/* Vue Container */
+
+#details-container {
+  border-color: #41b883;
+}
+
+#details-container:after {
+  content: "Vue";
+  background: #41b883;
+}

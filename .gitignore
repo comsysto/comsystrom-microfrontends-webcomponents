@@ -2,3 +2,9 @@
 /**/build
 /**/node_modules
 .history
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

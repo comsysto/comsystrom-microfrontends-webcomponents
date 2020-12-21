@@ -9,19 +9,21 @@
     />
     <link href="https://assets-global.website-files.com/5ad0acc69f356a98471287a3/5ad0acc69f356a1d8b128b2d_Comsysto%20Reply%20-%20RUNNING%20MAN%20RGB%20favicon.png"
           rel="shortcut icon" type="image/x-icon"/>
+
+    <link href="styles.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body onload="initMicrofrontendContainer()">
-<div class="container">
+<div class="wrapper">
     <div class="row">
-        <div class="col">
-            <div class="card">
-                <h5 class="card-header">Angular</h5>
-                <div class="card-body" id="ng-container"></div>
-            </div>
+        <div class="col col-lg-3 col-sm-1">
+            <div class="card-body" id="navigation-container"></div>
         </div>
-        <div id="main-container">
-            <h1>Comsystrom Backoffice</h1>
+        <div class="col col-lg-6 col-sm-1">
+            <div class="card-body" id="search-container"></div>
+        </div>
+        <div class="col col-lg-3 col-sm-1">
+            <div class="card-body" id="details-container"></div>
         </div>
     </div>
 </div>
