@@ -10,12 +10,12 @@ export class NavigationComponent implements OnInit {
 
     tabs = [
         {
-            path: '/anschlussobjekte', name: 'Anschlussobjekte', bundles: [
+            path: '/connection-object', name: 'Connection Objects', bundles: [
                 {bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search"},
                 {bundleUrl: "http://localhost:5003/js/app.js", elementName: "cs-details"}
             ]
         },
-        {path: '/kunden', name: 'Kunden', bundles: []},
+        {path: '/customers', name: 'Customers', bundles: []},
     ];
 
     private channel: BroadcastChannel;
