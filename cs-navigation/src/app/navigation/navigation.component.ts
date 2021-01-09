@@ -8,7 +8,7 @@ import {ComsystromEvent} from '../comsystrom-event';
 })
 export class NavigationComponent implements OnInit {
 
-    tabs = [
+    navigationItems = [
         {
             path: '/connection-object', name: 'Connection Objects', bundles: [
                 {bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search"},
