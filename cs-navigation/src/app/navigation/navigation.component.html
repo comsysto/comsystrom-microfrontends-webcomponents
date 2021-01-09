@@ -4,10 +4,10 @@
   <mat-nav-list class="navigation__list" role="list">
     <mat-list-item
       class="navigation__list-item"
-      *ngFor="let tab of tabs"
-      (click)="onTabClicked(tab)"
+      *ngFor="let navigationItem of navigationItems"
+      (click)="onTabClicked(navigationItem)"
       role="listitem">
-      {{ tab.name }}
+      {{ navigationItem.name }}
     </mat-list-item>
   </mat-nav-list>
 </div>
