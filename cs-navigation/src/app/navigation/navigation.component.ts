@@ -10,7 +10,7 @@ export class NavigationComponent implements OnInit {
 
     navigationItems = [
         {
-            path: '/connection-object', name: 'Connection Objects', bundles: [
+            path: '/connection-objects', name: 'Connection Objects', bundles: [
                 {bundleUrl: "http://localhost:5001/static/js/bundle.js", elementName: "cs-search"},
                 {bundleUrl: "http://localhost:5003/js/app.js", elementName: "cs-details"}
             ]
@@ -27,10 +27,10 @@ export class NavigationComponent implements OnInit {
         this.channel = new BroadcastChannel('comsystrom');
     }
 
-    onTabClicked(tab): void {
+    onNavigate(navigationItem): void {
         const event: ComsystromEvent = {
             key: 'navigation:change',
-            value: tab
+            value: navigationItem
         };
 
         this.channel.postMessage(event);

@@ -5,7 +5,7 @@
     <mat-list-item
       class="navigation__list-item"
       *ngFor="let navigationItem of navigationItems"
-      (click)="onTabClicked(navigationItem)"
+      (click)="onNavigate(navigationItem)"
       role="listitem">
       {{ navigationItem.name }}
     </mat-list-item>
